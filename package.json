@@ -17,5 +17,9 @@
     "url": "https://github.com/Louis-Takow/form-validation-playwright/issues"
   },
   "homepage": "https://github.com/Louis-Takow/form-validation-playwright#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "typescript": "^5.8.3"
+  }
 }

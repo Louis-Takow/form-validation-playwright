@@ -12,7 +12,7 @@ export class FormPage {
     private phoneNumberField;
     private linkedInField;
     private submitButton;
-    private errorMessage;
+    //private errorMessage;
 
     constructor(private page: Page) {
         // initialize locators after the page is assigned
@@ -27,7 +27,7 @@ export class FormPage {
         this.phoneNumberField = page.locator('input#phone');
         this.linkedInField = page.locator('input#linkedIn');
         this.submitButton = page.locator('input[type="submit"]');
-        this.errorMessage = page.locator('p'); // Assuming error messages use <p> tags
+       // this.errorMessage = page.locator('p'); // Assuming error messages use <p> tags
     }
 
     // Navigate to the form page
@@ -69,7 +69,7 @@ export class FormPage {
     }
 
     // Get error message(s)
-    async getErrorMessage() {
-        return this.errorMessage.allTextContents()
-    }
+    // async getErrorMessage() {
+    //     return this.errorMessage.allTextContents()
+    // }
 }
