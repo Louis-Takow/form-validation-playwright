@@ -19,6 +19,27 @@ test.describe('Form validation Tests', () => {
             // Assert the alert message content
             expect(dialog.message()).toContain('First name must be filled out');
             await dialog.accept();
+        });
+    });
+
+    // Test case 2:
+    test('TC-002: Validate first name field for invalid input', async ({ page }) => {
+        // Fill the form with invalid first name, valid other fields
+        await formPage.fillForm({
+            firstName: '123@#%',
+            lastName: 'Doe',
+            email: 'john.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password',
+            linkedIn: 'https://www.linkedin.com/in/johndoe',
+        });
+        await formPage.submitForm(); // Submit the form
+
+        // Register a listener for the dialog event
+        page.on('dialog', async (dialog) => {
+            // Assert the alert message content
+            expect(dialog.message()).toContain('First name must contain alphabetical characters only');
+            await dialog.accept();
         })
-    })
-})
+    });
+});
