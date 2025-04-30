@@ -31,7 +31,6 @@ test.describe('Form validation Tests', () => {
             email: 'john.doe@example.com',
             password: 'Password',
             confirmPassword: 'Password',
-            linkedIn: 'https://www.linkedin.com/in/johndoe',
         });
         await formPage.submitForm(); // Submit the form
 
@@ -40,6 +39,26 @@ test.describe('Form validation Tests', () => {
             // Assert the alert message content
             expect(dialog.message()).toContain('First name must contain alphabetical characters only');
             await dialog.accept();
-        })
+        });
     });
+
+    // Test case 3:
+    test('TC-003: Validate email field for invalid format', async ({ page }) => {
+        // Fill the form with an invalid email format, valid other fields
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'abc@example',
+            password: 'Password',
+            confirmPassword: 'Password'
+        });
+        await formPage.submitForm(); 
+
+        // Register a listener for the dialog event
+        page.on('dialog', async (dialog) => {
+            // Assert the alert message content
+            expect(dialog.message()).toContain('Email must be a valid email address');
+            await dialog.accept();
+        });
+    })
 });
