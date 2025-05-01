@@ -96,4 +96,18 @@ test.describe('Form validation Tests', () => {
         });
         await formPage.submitForm(); // Submit the form
     });
+
+    // Test case 6:
+    test('TC-006: Validate phone number field for invalid input', async () => {
+        // Fill the form with an invalid phone number, valid other fields
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password',
+            phoneNumber: 'adc123'
+        });
+        await formPage.submitForm(); // Submit the form
+    });
 });
