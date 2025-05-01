@@ -110,4 +110,18 @@ test.describe('Form validation Tests', () => {
         });
         await formPage.submitForm(); // Submit the form
     });
+
+    // Test case 7:
+    test('TC-007: Validate LinkedIn URL field for invalid URLs', async () => {
+        // Fill the form with an invalid LinkedIn URL, valide other fields
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password',
+            linkedIn: 'example'
+        });
+        await formPage.submitForm(); // Submit the form
+    });
 });
