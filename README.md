@@ -45,6 +45,8 @@ npx playwright show-report
 
 - [Test plan + Test cases & Bug report](./TEST_PLANandTEST_CASEandBUG_REPORT.md)
 
-## Encountered challenges or Limitations During Automation
-- Error messages were not easily accessible through DOM selectors, making it difficult to assert warning texts during automation
-- Date field validation was limited due to restricted automated input, allowing only partial entry (day and month).
+## Encountered challenges During Automation and Mitigation Strategies
+**Challenge**
+- Error messages were not easily accessible through DOM selectors, making it difficult to assert warning texts during automation. 
+**Walk-around**
+- Debug with innerHTML
