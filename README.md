@@ -41,3 +41,6 @@ After running tests:
 ``` bash
 npx playwright show-report
 ```
+## Test Documentation
+
+- [Test plan + Test cases & Bug report](./TEST_PLANandTEST_CASEandBUG_REPORT.md)
