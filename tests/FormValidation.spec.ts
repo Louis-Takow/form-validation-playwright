@@ -140,4 +140,19 @@ test.describe('Form validation Tests', () => {
         });
         await formPage.submitForm(); // Submit the form
     });
+
+    // Test case 9:
+    test('TC-009: Validate submission with mandatory fields only', async () => {
+        // Fill the form with mandatory fields only
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password'
+        });
+        await formPage.submitForm(); // Submit the form
+    });
+
+    
 });
