@@ -154,5 +154,23 @@ test.describe('Form validation Tests', () => {
         await formPage.submitForm(); // Submit the form
     });
 
-    
+    // Test case 10:
+    test('TC-010: Validate submission with one mandatory field missing', async ({ page }) => {
+        // Fill the form with a missing first name, valid other fields
+        await formPage.fillForm({
+            firstName: '',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password'
+        });
+        await formPage.submitForm();
+        
+        // Register a listener for the dialog event
+        page.on('dialog', async (dialog) => {
+            // Assert the alert message content
+            expect(dialog.message()).toContain('First name must be filled out');
+            await dialog.accept();
+        });
+    }); 
 });
