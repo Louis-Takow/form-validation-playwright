@@ -124,4 +124,20 @@ test.describe('Form validation Tests', () => {
         });
         await formPage.submitForm(); // Submit the form
     });
+
+    // Test case 8:
+    test('TC-008: Test form submission with valid inputs', async () => {
+        // Fill the form with valid inputs
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password',
+            gender: 'male',
+            phoneNumber: '1234567890',
+            linkedIn: ' https://www.linkedin.com/in/johnsmith'
+        });
+        await formPage.submitForm(); // Submit the form
+    });
 });
