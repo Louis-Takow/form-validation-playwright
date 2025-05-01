@@ -52,7 +52,7 @@ test.describe('Form validation Tests', () => {
             password: 'Password',
             confirmPassword: 'Password'
         });
-        await formPage.submitForm(); 
+        await formPage.submitForm(); // Submit the form
 
         // Register a listener for the dialog event
         page.on('dialog', async (dialog) => {
@@ -72,7 +72,7 @@ test.describe('Form validation Tests', () => {
             password: 'Password123',
             confirmPassword: 'Passsword456'
         });
-        await formPage.submitForm(); 
+        await formPage.submitForm(); // Submit the form
 
         // Register a listener for the dialog event
         page.on('dialog', async (dialog) => {
@@ -81,5 +81,19 @@ test.describe('Form validation Tests', () => {
             await dialog.accept();
         });
 
-    })
+    });
+
+    // Test case 5:
+    test('TC-005: validate gender selection functionality', async () => {
+        // Fill the form with a selected gender, valid other fields
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'John.doe@example.com',
+            password: 'Password',
+            confirmPassword: 'Password',
+            gender: 'male'
+        });
+        await formPage.submitForm(); // Submit the form
+    });
 });
