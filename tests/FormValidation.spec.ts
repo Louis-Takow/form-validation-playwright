@@ -60,5 +60,26 @@ test.describe('Form validation Tests', () => {
             expect(dialog.message()).toContain('Email must be a valid email address');
             await dialog.accept();
         });
+    });
+
+    // Test case 4:
+    test('TC-004: Validate password matching', async ({ page }) => {
+        // Fill the form with mismatched password and confirm password, valid other fields
+        await formPage.fillForm({
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'john.doe@example.com',
+            password: 'Password123',
+            confirmPassword: 'Passsword456'
+        });
+        await formPage.submitForm(); 
+
+        // Register a listener for the dialog event
+        page.on('dialog', async (dialog) => {
+            // Assert the alert message content
+            expect(dialog.message()).toContain('Passwords do not match');
+            await dialog.accept();
+        });
+
     })
 });
